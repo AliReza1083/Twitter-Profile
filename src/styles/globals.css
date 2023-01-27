@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  body {
+    @apply p-4;
+  }
+
+  .image {
+    background-color: red;
+    width: 700px !important;
+  }
+
+  .image > div {
+    width: 50% !important;
+  }
+}

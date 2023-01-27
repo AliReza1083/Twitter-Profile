@@ -26,8 +26,11 @@ const Profile = ({ image, user }) => {
   };
 
   return (
-    <div className="w-full max-w-[700px] bg-gradient-to-br from-[#0965C0] to-[#C53A94] p-8 rounded-xl shadow-2xl">
-      <div className="w-1/2 mx-auto bg-black text-white bg-opacity-75 p-8 rounded-xl flex flex-col items-center shadow-xl">
+    <div
+      id="container"
+      className="w-full max-w-[700px] bg-gradient-to-br from-[#0965C0] to-[#C53A94] p-8 rounded-xl shadow-2xl"
+    >
+      <div className="w-full sm:w-3/4 md:w-1/2 mx-auto bg-black text-white bg-opacity-75 p-8 rounded-xl flex flex-col items-center shadow-xl">
         <Image
           src={highQualityImage}
           width={100}

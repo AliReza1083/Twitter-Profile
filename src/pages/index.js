@@ -12,6 +12,8 @@ export default function Home({ user }) {
   const [loading, setLoading] = useState(false);
 
   const newUserInformation = async () => {
+    if (inputField.length == 0) return;
+
     setLoading(true);
     await route.push(`?id=${inputField}`);
     setLoading(false);
@@ -25,16 +27,16 @@ export default function Home({ user }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${inter.className} flex flex-col items-center`}>
-        <div className="flex gap-4 py-12">
+        <div className="flex gap-4 py-12 px-4">
           <input
             type="text"
-            className="bg-white outline-none border-2 border-black border-opacity-50 focus:border-opacity-100 px-4 py-2 rounded-md"
+            className="w-full bg-white outline-none border-2 border-black border-opacity-50 focus:border-opacity-100 px-4 py-2 rounded-md"
             placeholder="search"
             onChange={(e) => setInputField(e.target.value)}
           />
           {loading == false ? (
             <button
-              className="w-32 bg-black text-white px-8 rounded-md active:scale-90 duration-100"
+              className="w-32 bg-black text-white rounded-md active:scale-90 duration-100"
               onClick={newUserInformation}
             >
               Search
