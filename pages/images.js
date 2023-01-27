@@ -11,7 +11,7 @@ const breakpointColumnsObj = {
   500: 1,
 };
 
-const Images = () => {
+const SeeingImages = () => {
   const selector = useSelector((state) => state.images);
 
   return (
@@ -28,4 +28,4 @@ const Images = () => {
   );
 };
 
-export default Images;
+export default SeeingImages;
