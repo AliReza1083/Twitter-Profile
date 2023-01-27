@@ -22,7 +22,7 @@ const SeeingImages = () => {
     >
       {/* array of JSX items */}
       {selector.map((image) => (
-        <Images image={image} />
+        <Images image={image} key={image.id} />
       ))}
     </Masonry>
   );
