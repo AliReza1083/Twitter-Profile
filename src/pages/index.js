@@ -3,6 +3,7 @@ import { Inter } from "@next/font/google";
 import Profile from "@/components/Profile";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function Home({ user }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${inter.className} flex flex-col items-center`}>
+        <Navbar />
         <div className="flex gap-4 py-12 px-4">
           <input
             type="text"
