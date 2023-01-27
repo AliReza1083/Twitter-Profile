@@ -11,7 +11,7 @@ const breakpointColumnsObj = {
   500: 1,
 };
 
-const images = () => {
+const Images = () => {
   const selector = useSelector((state) => state.images);
 
   return (
@@ -28,4 +28,4 @@ const images = () => {
   );
 };
 
-export default images;
+export default Images;
