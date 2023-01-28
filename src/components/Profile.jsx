@@ -1,9 +1,15 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import CountUp from "react-countup";
+import { useSelector } from "react-redux";
 
 const Profile = ({ image, user }) => {
   const highQualityImage = user.profile_image_url.replace("_normal", "");
+
+  const backgroundSelector = useSelector(
+    (state) => state.background.background
+  );
+  const rotateSelector = useSelector((state) => state.background.rotate);
 
   const {
     name,
@@ -28,7 +34,10 @@ const Profile = ({ image, user }) => {
   return (
     <div
       id="container"
-      className="w-full max-w-[700px] bg-gradient-to-br from-[#0965C0] to-[#C53A94] p-8 rounded-xl shadow-2xl"
+      className={`w-full max-w-[700px] p-8 rounded-xl shadow-2xl`}
+      style={{
+        background: `linear-gradient(${rotateSelector}deg, ${backgroundSelector.from}, ${backgroundSelector.to})`,
+      }}
     >
       <div className="w-full sm:w-3/4 md:w-1/2 mx-auto bg-black text-white bg-opacity-75 p-8 rounded-xl flex flex-col items-center shadow-xl">
         <Image
