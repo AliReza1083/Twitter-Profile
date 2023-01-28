@@ -2,6 +2,7 @@ import React from "react";
 import Gradients from "./Gradients";
 import CircularSlider from "@fseehawer/react-circular-slider";
 import { useDispatch, useSelector } from "react-redux";
+import { rotateAction } from "@/store/Background/Background.actions";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -17,9 +18,7 @@ const Navbar = () => {
         valueFontSize="20px"
         labelFontSize="9px"
         verticalOffset="0em"
-        onChange={(value) => {
-          dispatch({ type: "rotate", payload: value });
-        }}
+        onChange={(value) => dispatch(rotateAction(value))}
       />
       <Gradients />
     </div>

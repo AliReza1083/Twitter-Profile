@@ -3,6 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { IoMdArrowDropright } from "react-icons/io";
 import { motion } from "framer-motion";
 
+import { backgroundAction } from "@/store/Background/Background.actions";
+import {
+  backgroundSelector,
+  rotateSelector,
+} from "@/store/Background/Background.selector";
+
 const GRADIENTS = [
   {
     from: "#0965C0",
@@ -33,10 +39,9 @@ const GRADIENTS = [
 const Gradients = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
-  const rotateSelector = useSelector((state) => state.background.rotate);
-  const backgroundSelector = useSelector(
-    (state) => state.background.background
-  );
+  const rotate = useSelector((state) => rotateSelector(state));
+  const background = useSelector((state) => backgroundSelector(state));
+
   return (
     <div className="relative flex lg:flex-col gap-2 mt-4">
       {/* <div className="w-24 h-24 bg-[#62BDFF]"></div> */}
@@ -44,7 +49,7 @@ const Gradients = () => {
         <div
           className="w-12 h-12 rounded-lg"
           style={{
-            background: `linear-gradient(${rotateSelector}deg, ${backgroundSelector.from}, ${backgroundSelector.to})`,
+            background: `linear-gradient(${rotate}deg, ${background.from}, ${background.to})`,
           }}
         ></div>
         <IoMdArrowDropright
@@ -63,13 +68,11 @@ const Gradients = () => {
               key={index}
               className={`w-[48px] h-[48px] rounded-md active:!scale-90 duration-100`}
               style={{
-                background: `linear-gradient(${rotateSelector}deg, ${gradient.from}, ${gradient.to})`,
+                background: `linear-gradient(${rotate}deg, ${gradient.from}, ${gradient.to})`,
               }}
               animate={{ opacity: [0, 1], x: [-40, 0] }}
               transition={{ duration: 0.2, delay: index * 0.05 }}
-              onClick={() =>
-                dispatch({ type: "background", payload: gradient })
-              }
+              onClick={() => dispatch(backgroundAction(gradient))}
             ></motion.div>
           ))}
         </div>

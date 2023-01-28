@@ -3,7 +3,7 @@ import Image from "next/image";
 import CountUp from "react-countup";
 import { useSelector } from "react-redux";
 
-const Profile = ({ image, user }) => {
+const Profile = ({ user }) => {
   const highQualityImage = user.profile_image_url.replace("_normal", "");
 
   const backgroundSelector = useSelector(
@@ -47,7 +47,7 @@ const Profile = ({ image, user }) => {
           alt={username}
           className="rounded-full"
         />
-        <h1 className="text-3xl font-bold mt-2">{name}</h1>
+        <h1 className="text-3xl font-bold mt-2 text-center">{name}</h1>
         <h2 className="opacity-60 text-sm">{username}</h2>
         <p className="text-sm opacity-80 mt-4">{description}</p>
         <div className="grid grid-cols-3 w-full text-center mt-4">

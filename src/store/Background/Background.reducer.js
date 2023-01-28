@@ -1,3 +1,5 @@
+import { BACKGROUND } from "./Background.types";
+
 const INITIAL_VALUE = {
   background: {
     from: "#0965C0",
@@ -8,9 +10,9 @@ const INITIAL_VALUE = {
 
 export const backgroundReducer = (state = INITIAL_VALUE, { type, payload }) => {
   switch (type) {
-    case "background":
+    case BACKGROUND.background:
       return { ...state, background: payload };
-    case "rotate":
+    case BACKGROUND.rotate:
       return { ...state, rotate: payload };
     default:
       return state;

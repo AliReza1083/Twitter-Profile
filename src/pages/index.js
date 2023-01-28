@@ -7,6 +7,8 @@ import Navbar from "@/components/Navbar";
 
 import { AiOutlineMenu } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
+import { navbarActions } from "@/store/Navbar/Navbar.actions";
+import { navbarSelector } from "@/store/Navbar/Navbar.selector";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +17,7 @@ export default function Home({ user }) {
   const [inputField, setInputField] = useState("");
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  const isOpen = useSelector((state) => state.navbar.isOpen);
+  const isOpen = useSelector((state) => navbarSelector(state));
 
   const newUserInformation = async () => {
     if (inputField.length == 0) return;
@@ -70,7 +72,7 @@ export default function Home({ user }) {
             isOpen && "translate-x-28"
           } duration-200`}
           onClick={() => {
-            dispatch({ type: "NAVBAR", payload: !isOpen });
+            dispatch(navbarActions(isOpen));
           }}
         >
           <AiOutlineMenu />
