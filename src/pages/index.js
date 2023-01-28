@@ -34,7 +34,9 @@ export default function Home({ user }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${inter.className} flex flex-col items-center`}>
+      <main
+        className={`${inter.className} flex flex-col items-center overflow-hidden`}
+      >
         <Navbar />
         <div className="flex gap-4 py-12 px-4">
           <input

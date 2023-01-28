@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import domtoimage from "dom-to-image";
 import { saveAs } from "file-saver";
 import Image from "next/image";
@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { numberFormatSelector } from "@/store/Background/Background.selector";
 
 const Profile = ({ user }) => {
+  const [download, setDownload] = useState(false);
   const highQualityImage = user.profile_image_url.replace("_normal", "");
 
   const backgroundSelector = useSelector(
@@ -40,6 +41,7 @@ const Profile = ({ user }) => {
   };
 
   const downloadingImage = async () => {
+    setDownload(true);
     const container = document.querySelector("#container");
     container.classList.add("image");
     const style = {
@@ -60,7 +62,7 @@ const Profile = ({ user }) => {
       let dataUrl = await domtoimage.toPng(container, param);
       saveAs(dataUrl, `${name} - ${id}.png`);
       container.classList.remove("image");
-
+      setDownload(false);
       return;
     } catch (error) {
       console.error("Something was wrong!");
@@ -116,6 +118,23 @@ const Profile = ({ user }) => {
         </div>
       </div>
       <button onClick={downloadingImage}>Download</button>
+      {download && (
+        <div className="w-full h-screen fixed top-0 left-0 z-[9999] bg-white flex justify-center items-center">
+          <svg
+            fill="none"
+            class="h-24 w-24 animate-spin text-indigo-600"
+            viewBox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      )}
     </>
   );
 };
