@@ -41,6 +41,7 @@ const Profile = ({ user }) => {
 
   const downloadingImage = async () => {
     const container = document.querySelector("#container");
+    container.classList.add("image");
     const style = {
       transform: "scale(1.8)",
       transformOrigin: "top left",
@@ -57,7 +58,9 @@ const Profile = ({ user }) => {
     //image download
     try {
       let dataUrl = await domtoimage.toPng(container, param);
-      saveAs(dataUrl, `testing.png`);
+      saveAs(dataUrl, `${name} - ${id}.png`);
+      container.classList.remove("image");
+
       return;
     } catch (error) {
       console.error("Something was wrong!");
@@ -81,7 +84,7 @@ const Profile = ({ user }) => {
             alt={username}
             className="rounded-full"
           />
-          <h1 className="text-3xl font-bold mt-2 text-center">{name}</h1>
+          <h1 className="text-3xl font-bold mt-2 text-center w-full">{name}</h1>
           <h2 className="opacity-60 text-sm">{username}</h2>
           <p className="text-sm opacity-80 mt-4">{description}</p>
           <div className="grid grid-cols-3 w-full text-center mt-4">

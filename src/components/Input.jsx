@@ -6,13 +6,13 @@ const Input = () => {
   const dispatch = useDispatch();
 
   return (
-    <label class="toggler-wrapper style-12">
+    <label className="toggler-wrapper style-12">
       <input
         type="checkbox"
         onChange={(e) => dispatch(numberFormatAction(e.target.checked))}
       />
-      <div class="toggler-slider">
-        <div class="toggler-knob"></div>
+      <div className="toggler-slider">
+        <div className="toggler-knob"></div>
       </div>
     </label>
   );

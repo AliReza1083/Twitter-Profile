@@ -10,6 +10,7 @@
   .image {
     background-color: red;
     width: 700px !important;
+    border-radius: 0em !important;
   }
 
   .image > div {
