@@ -5,12 +5,17 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import Navbar from "@/components/Navbar";
 
+import { AiOutlineMenu } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ user }) {
   const route = useRouter();
   const [inputField, setInputField] = useState("");
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
+  const isOpen = useSelector((state) => state.navbar.isOpen);
 
   const newUserInformation = async () => {
     if (inputField.length == 0) return;
@@ -59,6 +64,17 @@ export default function Home({ user }) {
 
         {user && <Profile user={user} />}
         {!user && <h1>No User has been found</h1>}
+
+        <div
+          className={`lg:hidden text-xl fixed bottom-4 left-4 bg-black text-white rounded-full p-3 ${
+            isOpen && "translate-x-28"
+          } duration-200`}
+          onClick={() => {
+            dispatch({ type: "NAVBAR", payload: !isOpen });
+          }}
+        >
+          <AiOutlineMenu />
+        </div>
       </main>
     </>
   );

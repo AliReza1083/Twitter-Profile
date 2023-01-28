@@ -40,7 +40,7 @@ const Gradients = () => {
   return (
     <div className="relative flex lg:flex-col gap-2 mt-4">
       {/* <div className="w-24 h-24 bg-[#62BDFF]"></div> */}
-      <div className="flex items-center">
+      <div className="flex items-center" onClick={() => setIsOpen(!isOpen)}>
         <div
           className="w-12 h-12 rounded-lg"
           style={{
@@ -51,13 +51,12 @@ const Gradients = () => {
           className={`text-2xl cursor-pointer ${
             isOpen && "translate-x-3"
           } duration-150`}
-          onClick={() => setIsOpen(!isOpen)}
         />
       </div>
       {isOpen && (
         <div
           id="gradient_container"
-          className="w-full absolute -left-3/4 lg:top-0 lg:left-28 flex lg:flex-col gap-2 overflow-visible"
+          className="w-full absolute top-0 left-28 flex flex-col gap-2 overflow-visible"
         >
           {GRADIENTS.map((gradient, index) => (
             <motion.div

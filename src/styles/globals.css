@@ -15,14 +15,4 @@
   .image > div {
     width: 50% !important;
   }
-
-  @media (max-width: 1024px) {
-    #gradient_container {
-      @apply bg-white bg-opacity-50 backdrop-blur-sm rounded-lg p-2 w-[200px] bottom-24 flex-wrap justify-center;
-    }
-
-    #gradient_container > div {
-      width: 50px !important;
-    }
-  }
 }
