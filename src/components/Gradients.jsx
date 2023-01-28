@@ -61,6 +61,7 @@ const Gradients = () => {
         >
           {GRADIENTS.map((gradient, index) => (
             <motion.div
+              key={index}
               className={`w-[48px] h-[48px] rounded-md active:!scale-90 duration-100`}
               style={{
                 background: `linear-gradient(${rotateSelector}deg, ${gradient.from}, ${gradient.to})`,
