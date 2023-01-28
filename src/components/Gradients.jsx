@@ -43,8 +43,8 @@ const Gradients = () => {
   const background = useSelector((state) => backgroundSelector(state));
 
   return (
-    <div className="relative flex lg:flex-col gap-2 mt-4">
-      {/* <div className="w-24 h-24 bg-[#62BDFF]"></div> */}
+    <div className="relative flex flex-col gap-2">
+      <p className="text-xs opacity-50 mb-2">Background</p>
       <div className="flex items-center" onClick={() => setIsOpen(!isOpen)}>
         <div
           className="w-12 h-12 rounded-lg"
