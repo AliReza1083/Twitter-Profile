@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import CountUp from "react-countup";
 import { useSelector } from "react-redux";
+import { numberFormatSelector } from "@/store/Background/Background.selector";
 
 const Profile = ({ user }) => {
   const highQualityImage = user.profile_image_url.replace("_normal", "");
@@ -10,6 +11,7 @@ const Profile = ({ user }) => {
     (state) => state.background.background
   );
   const rotateSelector = useSelector((state) => state.background.rotate);
+  const numberFormat = useSelector((state) => numberFormatSelector(state));
 
   const {
     name,
@@ -28,7 +30,11 @@ const Profile = ({ user }) => {
   const formattingNumber = (value) => {
     const formatter = Intl.NumberFormat("en", { notation: "compact" });
     let n = formatter.format(value);
-    return value;
+    if (numberFormat) {
+      return n;
+    } else {
+      return value;
+    }
   };
 
   return (
@@ -53,15 +59,27 @@ const Profile = ({ user }) => {
         <div className="grid grid-cols-3 w-full text-center mt-4">
           <div>
             <small className="opacity-70">Following</small> <br />
-            <CountUp end={formattingNumber(following_count)} duration={2} />
+            {numberFormat ? (
+              <p>{formattingNumber(following_count)}</p>
+            ) : (
+              <CountUp end={following_count} duration={2} />
+            )}
           </div>
           <div>
             <small className="opacity-70">Followers</small> <br />
-            <CountUp end={formattingNumber(followers_count)} duration={2} />
+            {numberFormat ? (
+              <p>{formattingNumber(followers_count)}</p>
+            ) : (
+              <CountUp end={followers_count} duration={2} />
+            )}
           </div>
           <div>
             <small className="opacity-70">Tweets</small> <br />
-            <CountUp end={formattingNumber(tweet_count)} duration={2} />
+            {numberFormat ? (
+              <p>{formattingNumber(tweet_count)}</p>
+            ) : (
+              <CountUp end={tweet_count} duration={2} />
+            )}
           </div>
         </div>
       </div>

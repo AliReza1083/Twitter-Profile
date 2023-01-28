@@ -9,3 +9,8 @@ export const backgroundAction = (value) => ({
   type: BACKGROUND.background,
   payload: value,
 });
+
+export const numberFormatAction = (value) => ({
+  type: BACKGROUND.numberFormat,
+  payload: value,
+});

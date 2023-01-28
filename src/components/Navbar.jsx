@@ -2,11 +2,16 @@ import React from "react";
 import Gradients from "./Gradients";
 import CircularSlider from "@fseehawer/react-circular-slider";
 import { useDispatch, useSelector } from "react-redux";
-import { rotateAction } from "@/store/Background/Background.actions";
+import {
+  numberFormatAction,
+  rotateAction,
+} from "@/store/Background/Background.actions";
+import { navbarSelector } from "@/store/Navbar/Navbar.selector";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const isOpen = useSelector((state) => state.navbar.isOpen);
+  const isOpen = useSelector((state) => navbarSelector(state));
+
   return (
     <div
       className={`h-screen bg-white fixed top-0 left-0 shadow-xl p-4 flex flex-col items-center gap-4 z-50 ${
@@ -21,6 +26,11 @@ const Navbar = () => {
         onChange={(value) => dispatch(rotateAction(value))}
       />
       <Gradients />
+
+      <input
+        type="checkbox"
+        onChange={(e) => dispatch(numberFormatAction(e.target.checked))}
+      />
     </div>
   );
 };

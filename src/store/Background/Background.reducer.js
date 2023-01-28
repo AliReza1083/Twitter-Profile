@@ -6,6 +6,7 @@ const INITIAL_VALUE = {
     to: "#C53A94",
   },
   rotate: 0,
+  numberFormat: false,
 };
 
 export const backgroundReducer = (state = INITIAL_VALUE, { type, payload }) => {
@@ -14,6 +15,8 @@ export const backgroundReducer = (state = INITIAL_VALUE, { type, payload }) => {
       return { ...state, background: payload };
     case BACKGROUND.rotate:
       return { ...state, rotate: payload };
+    case BACKGROUND.numberFormat:
+      return { ...state, numberFormat: payload };
     default:
       return state;
   }
