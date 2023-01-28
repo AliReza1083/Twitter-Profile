@@ -1,1 +1,4 @@
-export const NAVBAR = "NAVBAR";
+export const NAVBAR = {
+  isOpen: "NAVBAR",
+  dark: "DARK",
+};

@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { rotateAction } from "@/store/Background/Background.actions";
 import { navbarSelector } from "@/store/Navbar/Navbar.selector";
 import NumberFormat from "./NumberFormat";
+import DarkMode from "./DarkMode";
+import { darkActions } from "@/store/Navbar/Navbar.actions";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -26,6 +28,12 @@ const Navbar = () => {
       <Gradients />
 
       <NumberFormat />
+
+      <DarkMode
+        onChange={(e) => {
+          dispatch(darkActions(e.target.checked));
+        }}
+      />
     </div>
   );
 };

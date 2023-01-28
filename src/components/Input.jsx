@@ -1,16 +1,13 @@
 import React from "react";
-import { numberFormatAction } from "@/store/Background/Background.actions";
 import { useDispatch } from "react-redux";
+import { numberFormatAction } from "@/store/Background/Background.actions";
 
-const Input = () => {
+const Input = ({ ...otherProps }) => {
   const dispatch = useDispatch();
 
   return (
     <label className="toggler-wrapper style-12">
-      <input
-        type="checkbox"
-        onChange={(e) => dispatch(numberFormatAction(e.target.checked))}
-      />
+      <input type="checkbox" {...otherProps} />
       <div className="toggler-slider">
         <div className="toggler-knob"></div>
       </div>
