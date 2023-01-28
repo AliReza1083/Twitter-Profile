@@ -23,7 +23,7 @@ export default function Home({ user }) {
   console.log(darkMode);
 
   if (typeof window !== "undefined") {
-    if (darkMode == false) {
+    if (darkMode == true) {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
@@ -48,7 +48,7 @@ export default function Home({ user }) {
       <main
         className={`${inter.className} flex flex-col items-center overflow-hidden`}
       >
-        <Navbar />
+        <Navbar user={user} />
         <div className="flex gap-4 py-12 px-4">
           <input
             type="text"

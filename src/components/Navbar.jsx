@@ -1,5 +1,7 @@
 import React from "react";
 import Gradients from "./Gradients";
+import domtoimage from "dom-to-image";
+import { saveAs } from "file-saver";
 import CircularSlider from "@fseehawer/react-circular-slider";
 import { useDispatch, useSelector } from "react-redux";
 import { rotateAction } from "@/store/Background/Background.actions";
@@ -7,10 +9,40 @@ import { navbarSelector } from "@/store/Navbar/Navbar.selector";
 import NumberFormat from "./NumberFormat";
 import DarkMode from "./DarkMode";
 import { darkActions } from "@/store/Navbar/Navbar.actions";
+import { AiOutlineCloudUpload, AiOutlineDownload } from "react-icons/ai";
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
   const dispatch = useDispatch();
   const isOpen = useSelector((state) => navbarSelector(state));
+
+  const downloadingImage = async () => {
+    const container = document.querySelector("#container");
+    console.log("working 1");
+    container.classList.add("image");
+    const style = {
+      transform: "scale(1.8)",
+      transformOrigin: "top left",
+      left: "0px",
+      height: "auto",
+      width: "auto",
+    };
+    const param = {
+      quality: 1,
+      height: container.offsetHeight * 1.8,
+      width: container.offsetWidth * 1.8,
+      style,
+    };
+    //image download
+    try {
+      let dataUrl = await domtoimage.toPng(container, param);
+      console.log("working 2");
+      saveAs(dataUrl, `${user.name} - ${user.id}.png`);
+      container.classList.remove("image");
+      return;
+    } catch (error) {
+      console.error("Something was wrong!");
+    }
+  };
 
   return (
     <div
@@ -34,6 +66,18 @@ const Navbar = () => {
           dispatch(darkActions(e.target.checked));
         }}
       />
+
+      <div className="relative mt-auto bg-green-600 p-4 text-2xl text-white rounded-xl">
+        <AiOutlineCloudUpload />
+        <div className="absolute bottom-0 left-24">
+          <div
+            className="bg-green-500 p-2 rounded-md"
+            onClick={downloadingImage}
+          >
+            <AiOutlineDownload />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

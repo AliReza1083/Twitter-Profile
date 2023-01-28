@@ -14,3 +14,8 @@ export const numberFormatAction = (value) => ({
   type: BACKGROUND.numberFormat,
   payload: value,
 });
+
+export const downloadLoadingAction = (value) => ({
+  type: BACKGROUND.downloadLoading,
+  payload: value,
+});
