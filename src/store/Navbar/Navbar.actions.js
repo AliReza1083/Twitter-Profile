@@ -9,3 +9,8 @@ export const darkActions = (value) => ({
   type: NAVBAR.dark,
   payload: !value,
 });
+
+export const uploadActions = (value) => ({
+  type: NAVBAR.upload,
+  payload: !value,
+});

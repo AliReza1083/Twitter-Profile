@@ -1,0 +1,43 @@
+.container {
+  @apply w-full max-w-[700px] p-8 rounded-xl shadow-2xl;
+}
+
+.container .card {
+  @apply w-full sm:w-3/4 md:w-1/2 mx-auto bg-black text-white bg-opacity-75 dark:bg-white dark:text-black dark:bg-opacity-75 p-8 rounded-xl flex flex-col items-center shadow-xl;
+}
+
+.container .card img {
+  @apply rounded-full mx-auto;
+}
+
+.container .card .user_information > div {
+  @apply text-center;
+}
+
+.container .card .user_information .name {
+  @apply text-3xl font-bold mt-2 w-full;
+}
+
+.container .card .user_information .username {
+  @apply opacity-60 text-sm;
+}
+
+.container .card .user_information .description {
+  @apply text-sm opacity-80 mt-4;
+}
+
+.container .card .counts {
+  @apply grid grid-cols-3 w-full text-center mt-4;
+}
+
+/* New Styles */
+.container.style__1 .card {
+  @apply w-11/12 flex-row flex-wrap items-start;
+}
+.container.style__1 .card .user_information > div {
+  @apply flex gap-4 text-start;
+}
+
+.container.style__1 .card .user_information > div img {
+  @apply mx-0;
+}

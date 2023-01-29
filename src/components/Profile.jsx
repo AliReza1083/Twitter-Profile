@@ -1,7 +1,4 @@
 import React, { useEffect } from "react";
-import domtoimage from "dom-to-image";
-import { saveAs } from "file-saver";
-import Image from "next/image";
 import CountUp from "react-countup";
 import { useSelector } from "react-redux";
 import {
