@@ -3,8 +3,19 @@
 @tailwind utilities;
 
 @layer components {
+  ::selection {
+    background-color: black;
+    color: white;
+  }
+
   body {
     @apply p-4 pb-64;
+  }
+
+  #text-header {
+    background: linear-gradient(black, rgb(97, 97, 97));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .image {

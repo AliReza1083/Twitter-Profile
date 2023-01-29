@@ -123,9 +123,11 @@ const Navbar = ({ user }) => {
       >
         <AiOutlineCloudUpload />
         {upload && (
-          <div className={`flex gap-2 absolute bottom-0 left-24`}>
+          <div
+            className={`flex flex-col-reverse items-center gap-2 absolute bottom-16 left-[7px]`}
+          >
             <motion.div
-              animate={{ opacity: [0, 1], x: [-20, 0] }}
+              animate={{ opacity: [0, 1], y: [20, 0] }}
               transition={{ duration: 0.4, delay: 0.01 }}
               className="bg-black p-2 rounded-md text-xs cursor-pointer"
               onClick={PNG}
@@ -133,16 +135,16 @@ const Navbar = ({ user }) => {
               PNG
             </motion.div>
             <motion.div
-              animate={{ opacity: [0, 1], x: [-20, 0] }}
-              transition={{ duration: 0.4, delay: 0.02 }}
+              animate={{ opacity: [0, 1], y: [20, 0] }}
+              transition={{ duration: 0.4, delay: 0.03 }}
               className="bg-black p-2 rounded-md text-xs cursor-pointer"
               onClick={JPG}
             >
               JPG
             </motion.div>
             <motion.div
-              animate={{ opacity: [0, 1], x: [-20, 0] }}
-              transition={{ duration: 0.4, delay: 0.03 }}
+              animate={{ opacity: [0, 1], y: [20, 0] }}
+              transition={{ duration: 0.4, delay: 0.05 }}
               className="bg-black p-2 rounded-md text-xs cursor-pointer"
               onClick={SVG}
             >
