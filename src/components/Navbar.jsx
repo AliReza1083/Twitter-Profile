@@ -4,7 +4,10 @@ import domtoimage from "dom-to-image";
 import { saveAs } from "file-saver";
 import CircularSlider from "@fseehawer/react-circular-slider";
 import { useDispatch, useSelector } from "react-redux";
-import { rotateAction } from "@/store/Background/Background.actions";
+import {
+  downloadLoadingAction,
+  rotateAction,
+} from "@/store/Background/Background.actions";
 import { navbarSelector } from "@/store/Navbar/Navbar.selector";
 import NumberFormat from "./NumberFormat";
 import DarkMode from "./DarkMode";
@@ -17,7 +20,7 @@ const Navbar = ({ user }) => {
 
   const downloadingImage = async () => {
     const container = document.querySelector("#container");
-    console.log("working 1");
+    dispatch(downloadLoadingAction(true));
     container.classList.add("image");
     const style = {
       transform: "scale(1.8)",
@@ -35,9 +38,9 @@ const Navbar = ({ user }) => {
     //image download
     try {
       let dataUrl = await domtoimage.toPng(container, param);
-      console.log("working 2");
       saveAs(dataUrl, `${user.name} - ${user.id}.png`);
       container.classList.remove("image");
+      dispatch(downloadLoadingAction(false));
       return;
     } catch (error) {
       console.error("Something was wrong!");

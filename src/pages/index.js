@@ -1,26 +1,28 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
-import Profile from "@/components/Profile";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import Navbar from "@/components/Navbar";
+import { useDispatch, useSelector } from "react-redux";
 
 import { AiOutlineMenu } from "react-icons/ai";
-import { useDispatch, useSelector } from "react-redux";
 import { navbarActions } from "@/store/Navbar/Navbar.actions";
+
+import Navbar from "@/components/Navbar";
+import Profile from "@/components/Profile";
+
 import { darkSelector, navbarSelector } from "@/store/Navbar/Navbar.selector";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ user }) {
-  const route = useRouter();
   const [inputField, setInputField] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const route = useRouter();
   const dispatch = useDispatch();
+
   const isOpen = useSelector((state) => navbarSelector(state));
   const darkMode = useSelector((state) => darkSelector(state));
-
-  console.log(darkMode);
 
   if (typeof window !== "undefined") {
     if (darkMode == true) {
@@ -49,11 +51,12 @@ export default function Home({ user }) {
         className={`${inter.className} flex flex-col items-center overflow-hidden`}
       >
         <Navbar user={user} />
+
         <div className="flex gap-4 py-12 px-4">
           <input
             type="text"
             className="w-full bg-white outline-none border-2 border-black border-opacity-50 focus:border-opacity-100 px-4 py-2 rounded-md"
-            placeholder="search"
+            placeholder="twitter handle"
             onChange={(e) => setInputField(e.target.value)}
           />
           {loading == false ? (
@@ -65,13 +68,13 @@ export default function Home({ user }) {
             </button>
           ) : (
             <button
-              class="inline-flex w-32 items-center justify-center rounded-md border border-transparent bg-black px-2 py-1 text-sm font-medium text-white shadow-sm hover:black"
+              className="inline-flex w-32 items-center justify-center rounded-md border border-transparent bg-black px-2 py-1 text-sm font-medium text-white shadow-sm hover:black"
               disabled
             >
-              <span class="inline-flex items-center gap-px">
-                <span class="animate-blink mx-px h-1.5 w-1.5 rounded-full bg-white"></span>
-                <span class="animate-blink animation-delay-150 mx-px h-1.5 w-1.5 rounded-full bg-white"></span>
-                <span class="animate-blink animation-delay-300 mx-px h-1.5 w-1.5 rounded-full bg-white"></span>
+              <span className="inline-flex items-center gap-px">
+                <span className="animate-blink mx-px h-1.5 w-1.5 rounded-full bg-white"></span>
+                <span className="animate-blink animation-delay-150 mx-px h-1.5 w-1.5 rounded-full bg-white"></span>
+                <span className="animate-blink animation-delay-300 mx-px h-1.5 w-1.5 rounded-full bg-white"></span>
               </span>
             </button>
           )}

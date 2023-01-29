@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import domtoimage from "dom-to-image";
 import { saveAs } from "file-saver";
 import Image from "next/image";
@@ -10,7 +10,6 @@ import {
 } from "@/store/Background/Background.selector";
 
 const Profile = ({ user }) => {
-  const [download, setDownload] = useState(false);
   const highQualityImage = user.profile_image_url.replace("_normal", "");
 
   const backgroundSelector = useSelector(
@@ -18,9 +17,7 @@ const Profile = ({ user }) => {
   );
   const rotateSelector = useSelector((state) => state.background.rotate);
   const numberFormat = useSelector((state) => numberFormatSelector(state));
-  const downloadLoading = useSelector((state) =>
-    downloadLoadingSelector(state)
-  );
+  const download = useSelector((state) => downloadLoadingSelector(state));
 
   const {
     name,
@@ -55,7 +52,7 @@ const Profile = ({ user }) => {
           background: `linear-gradient(${rotateSelector}deg, ${backgroundSelector.from}, ${backgroundSelector.to})`,
         }}
       >
-        <div className="w-full sm:w-3/4 md:w-1/2 mx-auto bg-black bg-opacity-75 text-white dark:text-black dark:bg-white dark:bg-opacity-75 p-8 rounded-xl flex flex-col items-center shadow-xl duration-150">
+        <div className="w-full sm:w-3/4 md:w-1/2 mx-auto bg-black text-white bg-opacity-75 dark:bg-white dark:text-black dark:bg-opacity-75 p-8 rounded-xl flex flex-col items-center shadow-xl">
           <img
             src={highQualityImage}
             width={100}
@@ -94,7 +91,7 @@ const Profile = ({ user }) => {
           </div>
         </div>
       </div>
-      {downloadLoading && (
+      {download && (
         <div className="w-full h-screen fixed top-0 left-0 z-[9999] bg-white flex justify-center items-center">
           <svg
             fill="none"
