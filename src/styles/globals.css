@@ -29,7 +29,7 @@
   }
 
   .toggler-wrapper input[type="checkbox"]:checked + .toggler-slider {
-    background-color: #44cc66;
+    background-color: #000;
   }
 
   .toggler-wrapper .toggler-slider {

@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import Gradients from "./Gradients";
 import domtoimage from "dom-to-image";
 import { saveAs } from "file-saver";
@@ -117,25 +118,38 @@ const Navbar = ({ user }) => {
       />
 
       <div
-        className="relative mt-auto bg-green-600 p-4 text-2xl text-white rounded-xl"
+        className="relative mt-auto bg-black p-4 text-2xl text-white rounded-xl active:scale-90 duration-100"
         onClick={() => dispatch(uploadActions(upload))}
       >
         <AiOutlineCloudUpload />
-        <div
-          className={`flex gap-2 absolute bottom-0 left-24 ${
-            upload ? "block" : "hidden"
-          }`}
-        >
-          <div className="bg-green-500 p-2 rounded-md text-xs" onClick={PNG}>
-            PNG
+        {upload && (
+          <div className={`flex gap-2 absolute bottom-0 left-24`}>
+            <motion.div
+              animate={{ opacity: [0, 1], x: [-20, 0] }}
+              transition={{ duration: 0.4, delay: 0.01 }}
+              className="bg-black p-2 rounded-md text-xs cursor-pointer"
+              onClick={PNG}
+            >
+              PNG
+            </motion.div>
+            <motion.div
+              animate={{ opacity: [0, 1], x: [-20, 0] }}
+              transition={{ duration: 0.4, delay: 0.02 }}
+              className="bg-black p-2 rounded-md text-xs cursor-pointer"
+              onClick={JPG}
+            >
+              JPG
+            </motion.div>
+            <motion.div
+              animate={{ opacity: [0, 1], x: [-20, 0] }}
+              transition={{ duration: 0.4, delay: 0.03 }}
+              className="bg-black p-2 rounded-md text-xs cursor-pointer"
+              onClick={SVG}
+            >
+              SVG
+            </motion.div>
           </div>
-          <div className="bg-green-500 p-2 rounded-md text-xs" onClick={JPG}>
-            JPG
-          </div>
-          <div className="bg-green-500 p-2 rounded-md text-xs" onClick={SVG}>
-            SVG
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );
