@@ -105,6 +105,10 @@ const Navbar = ({ user }) => {
         valueFontSize="20px"
         labelFontSize="9px"
         verticalOffset="0em"
+        progressColorFrom="#999"
+        progressColorTo="#000"
+        trackColor="#eee"
+        knobColor="#000"
         onChange={(value) => dispatch(rotateAction(value))}
       />
       <Gradients />

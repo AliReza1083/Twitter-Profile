@@ -10,7 +10,10 @@ const DarkMode = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <p className="text-xs opacity-50 mb-2">Number Format</p>
+      <p className="text-xs text-black mb-2">
+        <span className={`${dark == false && "font-bold"}`}>Dark</span> &{" "}
+        <span className={`${dark == true && "font-bold"}`}>Light</span>
+      </p>
       <Input
         onChange={() => {
           dispatch(darkActions(dark));
