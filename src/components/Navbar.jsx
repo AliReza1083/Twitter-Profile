@@ -28,7 +28,7 @@ const Navbar = ({ user }) => {
   };
 
   const PNG = async () => {
-    const container = document.querySelector(".container");
+    const container = document.querySelector("#container");
     dispatch(downloadLoadingAction(true));
     container.classList.add("image");
     const param = {
@@ -50,7 +50,7 @@ const Navbar = ({ user }) => {
   };
 
   const JPG = async () => {
-    const container = document.querySelector(".container");
+    const container = document.querySelector("#container");
     dispatch(downloadLoadingAction(true));
     container.classList.add("image");
     const param = {
@@ -72,7 +72,7 @@ const Navbar = ({ user }) => {
   };
 
   const SVG = async () => {
-    const container = document.querySelector(".container");
+    const container = document.querySelector("#container");
     dispatch(downloadLoadingAction(true));
     container.classList.add("image");
     const param = {
