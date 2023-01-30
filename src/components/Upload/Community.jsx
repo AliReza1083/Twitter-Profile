@@ -29,7 +29,6 @@ const Community = ({ user }) => {
     };
     //image download
     try {
-      const colRef = collection(db, `images`);
       const userDocRef = doc(db, "images", username.toLowerCase());
       const imageRef = ref(storage, `${name} - ${id}`);
       let dataUrl = await domtoimage.toPng(container, param);
