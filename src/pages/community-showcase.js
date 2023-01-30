@@ -56,6 +56,7 @@ const CommunityShowcase = () => {
                 <a
                   href={`https://twitter.com/${user.username}`}
                   target={"_blank"}
+                  rel="noreferrer"
                   className="text-xs opacity-50"
                 >
                   @{user.username}
@@ -65,6 +66,7 @@ const CommunityShowcase = () => {
               <a
                 href={user.image}
                 target={"_blank"}
+                rel="noreferrer"
                 className="absolute right-4 top-4 bg-black text-white p-1 rounded-md md:opacity-0 group-hover:opacity-100 duration-150"
               >
                 <HiDownload />
