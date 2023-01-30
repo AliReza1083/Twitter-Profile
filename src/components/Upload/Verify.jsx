@@ -70,8 +70,8 @@ const Verify = ({ user }) => {
       >
         <h1 className="text-center font-bold text-xl">Community Showcase</h1>
         <p className="text-sm text-center opacity-75 mt-2">
-          You can send your image to "Community Showcase" page, so that everyone
-          can see it.
+          You can send your image to &quot;Community Showcase&ldquo; page, so
+          that everyone can see it.
         </p>
 
         <p className="mt-8 opacity-80">
