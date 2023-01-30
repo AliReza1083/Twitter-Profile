@@ -10,7 +10,12 @@ import { navbarActions } from "@/store/Navbar/Navbar.actions";
 import Navbar from "@/components/Navbar";
 import Profile from "@/components/Profile";
 
-import { darkSelector, navbarSelector } from "@/store/Navbar/Navbar.selector";
+import {
+  darkSelector,
+  navbarSelector,
+  verifySelector,
+} from "@/store/Navbar/Navbar.selector";
+import Verify from "@/components/Upload/Verify";
 
 const inter = Inter({ subsets: ["latin"], weight: ["100", "400", "900"] });
 
@@ -23,6 +28,7 @@ export default function Home({ user }) {
 
   const isOpen = useSelector((state) => navbarSelector(state));
   const darkMode = useSelector((state) => darkSelector(state));
+  const verify = useSelector((state) => verifySelector(state));
 
   if (typeof window !== "undefined") {
     if (darkMode == true) {
@@ -104,6 +110,8 @@ export default function Home({ user }) {
         >
           <AiOutlineMenu />
         </div>
+
+        {verify && <Verify user={user} />}
       </main>
     </>
   );

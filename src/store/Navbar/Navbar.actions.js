@@ -14,3 +14,8 @@ export const uploadActions = (value) => ({
   type: NAVBAR.upload,
   payload: !value,
 });
+
+export const verifyActions = (value) => ({
+  type: NAVBAR.verify,
+  payload: value,
+});
