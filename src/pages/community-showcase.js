@@ -41,6 +41,7 @@ const CommunityShowcase = () => {
         >
           {users.map((user) => (
             <div
+              data-aos="fade-up"
               key={user.id}
               className="group relative rounded-xl overflow-hidden shadow-2xl"
             >

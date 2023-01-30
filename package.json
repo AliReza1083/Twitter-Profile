@@ -12,6 +12,7 @@
   "dependencies": {
     "@fseehawer/react-circular-slider": "^2.5.16",
     "@next/font": "13.1.5",
+    "aos": "^3.0.0-beta.6",
     "dom-to-image": "^2.6.0",
     "eslint-config-next": "13.1.5",
     "file-saver": "^2.0.5",

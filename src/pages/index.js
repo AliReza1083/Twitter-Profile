@@ -16,6 +16,7 @@ import {
   verifySelector,
 } from "@/store/Navbar/Navbar.selector";
 import Verify from "@/components/Upload/Verify";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"], weight: ["100", "400", "900"] });
 
@@ -61,6 +62,13 @@ export default function Home({ user }) {
         className={`${inter.className} flex flex-col items-center overflow-hidden`}
       >
         <Navbar user={user} />
+
+        <Link
+          href={"/community-showcase"}
+          className="text-sm md:text-base self-end opacity-75 hover:opacity-100"
+        >
+          Community Showcase
+        </Link>
 
         <h1
           id="text-header"
