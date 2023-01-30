@@ -6,6 +6,8 @@ import "aos/dist/aos.css";
 import { store } from "@/store";
 import { Provider } from "react-redux";
 
+import { Analytics } from "@vercel/analytics/react";
+
 export default function App({ Component, pageProps }) {
   useEffect(() => {
     AOS.init({
@@ -19,6 +21,7 @@ export default function App({ Component, pageProps }) {
       <Provider store={store}>
         <Component {...pageProps} />
       </Provider>
+      <Analytics />
     </>
   );
 }
