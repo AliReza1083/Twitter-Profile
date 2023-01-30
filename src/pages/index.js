@@ -7,8 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineMenu } from "react-icons/ai";
 import { navbarActions } from "@/store/Navbar/Navbar.actions";
 
-import { signWithTwitter } from "../utils/Firebase";
-
 import Navbar from "@/components/Navbar";
 import Profile from "@/components/Profile";
 
@@ -42,11 +40,6 @@ export default function Home({ user }) {
     setLoading(false);
   };
 
-  const loggingWithTwitter = async () => {
-    const response = await signWithTwitter();
-    console.log(response);
-  };
-
   return (
     <>
       <Head>
@@ -62,8 +55,6 @@ export default function Home({ user }) {
         className={`${inter.className} flex flex-col items-center overflow-hidden`}
       >
         <Navbar user={user} />
-
-        <h1 onClick={loggingWithTwitter}>Sign In</h1>
 
         <h1
           id="text-header"
