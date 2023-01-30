@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineMenu } from "react-icons/ai";
 import { navbarActions } from "@/store/Navbar/Navbar.actions";
 
+import { signWithTwitter } from "../utils/Firebase";
+
 import Navbar from "@/components/Navbar";
 import Profile from "@/components/Profile";
 
@@ -39,6 +41,12 @@ export default function Home({ user }) {
     await route.push(`?id=${inputField}`);
     setLoading(false);
   };
+
+  const loggingWithTwitter = async () => {
+    await signWithTwitter();
+    console.log("signed in");
+  };
+
   return (
     <>
       <Head>
@@ -55,14 +63,16 @@ export default function Home({ user }) {
       >
         <Navbar user={user} />
 
+        <h1 onClick={loggingWithTwitter}>Sign In</h1>
+
         <h1
           id="text-header"
-          className="font-black text-3xl md:text-5xl mt-24 mb-8 text-center py-4"
+          className="font-black text-3xl md:text-5xl mt-16 md:mt-24 mb-8 text-center py-2"
         >
           Get FREE image of your Twitter Profile
         </h1>
 
-        <div className="flex gap-4 py-12 px-4">
+        <div className="flex gap-4 py-12">
           <input
             type="text"
             className="w-full bg-white outline-none border-2 border-black border-opacity-50 focus:border-opacity-100 px-4 py-2 rounded-md"
