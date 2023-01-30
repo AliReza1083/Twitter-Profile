@@ -5,6 +5,8 @@ import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import Masonry from "react-masonry-css";
 import SkeletonLoading from "@/components/Skeleton-Loading";
 
+import { HiDownload } from "react-icons/hi";
+
 const CommunityShowcase = () => {
   const [users, setUsers] = useState([]);
   const colRef = collection(db, "images");
@@ -40,7 +42,7 @@ const CommunityShowcase = () => {
           {users.map((user) => (
             <div
               key={user.id}
-              className="relative rounded-xl overflow-hidden shadow-2xl"
+              className="group relative rounded-xl overflow-hidden shadow-2xl"
             >
               <Image
                 className="w-full"
@@ -49,11 +51,24 @@ const CommunityShowcase = () => {
                 src={user.image}
                 alt=""
               />
-              <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-b from-transparent to-[#212121] text-white flex flex-col justify-end p-4 md:translate-y-8 md:opacity-0 hover:opacity-100 hover:translate-y-0 duration-150">
+              <div className="w-full h-full md:absolute top-0 left-0 bg-white md:bg-transparent md:bg-gradient-to-b from-transparent to-[#212121] md:text-white flex flex-col justify-end p-4 md:translate-y-8 md:opacity-0 hover:opacity-100 hover:translate-y-0 duration-150">
                 <h1>{user.name}</h1>
-                <p className="text-xs opacity-50">{user.username}</p>
+                <a
+                  href={`https://twitter.com/${user.username}`}
+                  target={"_blank"}
+                  className="text-xs opacity-50"
+                >
+                  @{user.username}
+                </a>
                 <p className="text-xs opacity-60 mt-1">{user.description}</p>
               </div>
+              <a
+                href={user.image}
+                target={"_blank"}
+                className="absolute right-4 top-4 bg-black text-white p-1 rounded-md md:opacity-0 group-hover:opacity-100 duration-150"
+              >
+                <HiDownload />
+              </a>
             </div>
           ))}
         </Masonry>
