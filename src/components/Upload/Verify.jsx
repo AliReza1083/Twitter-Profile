@@ -14,6 +14,11 @@ const Verify = ({ user }) => {
   const [inputField, setInputField] = useState("");
   const dispatch = useDispatch();
 
+  const [loading, setLoading] = useState(false);
+  const [firstOperation, setFirstOperation] = useState(false);
+  const [secondOperation, setSecondOperation] = useState(false);
+  const [thirdOperation, setThirdOperation] = useState(false);
+
   const style = {
     transform: "scale(1.8)",
     transformOrigin: "top left",
@@ -25,8 +30,7 @@ const Verify = ({ user }) => {
   const SendingImageToCommunity = async ({ name, id, username }) => {
     if (inputField !== `twitter/${username}`) return;
 
-    dispatch(downloadLoadingAction(true));
-    console.log("uploading");
+    setLoading(true);
     const container = document.querySelector("#container");
     container.classList.add("image");
     const param = {
@@ -37,13 +41,15 @@ const Verify = ({ user }) => {
     };
     //image download
     try {
-      const userDocRef = doc(db, "images", username.toLowerCase());
-      const imageRef = ref(storage, `${name} - ${id}`);
       let dataUrl = await domtoimage.toPng(container, param);
       const img = await fetch(dataUrl);
       const imgBlob = await img.blob();
+      setFirstOperation(true);
+
+      const userDocRef = doc(db, "images", username.toLowerCase());
+      const imageRef = ref(storage, `${name} - ${id}`);
       const upBytes = await uploadBytes(imageRef, imgBlob);
-      console.log("uploaded");
+      setSecondOperation(true);
       container.classList.remove("image");
 
       const downloadURL = await getDownloadURL(upBytes.ref);
@@ -54,8 +60,13 @@ const Verify = ({ user }) => {
         image: downloadURL,
         ...user,
       });
-      console.log("Added");
-      dispatch(downloadLoadingAction(false));
+      setThirdOperation(true);
+      setLoading(false);
+      setTimeout(() => {
+        setFirstOperation(false);
+        setSecondOperation(false);
+        setThirdOperation(false);
+      }, 2000);
       return;
     } catch (error) {
       console.log(error);
@@ -83,20 +94,69 @@ const Verify = ({ user }) => {
           className="w-full border-2 border-[#555] px-2 py-1 rounded-md my-3"
           onChange={(e) => setInputField(e.target.value)}
         />
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 items-center">
           <button
             className="bg-red-800 py-2 text-white rounded-lg mt-4"
             onClick={() => dispatch(verifyActions(false))}
           >
             Cancel
           </button>
-          <button
-            onClick={() => SendingImageToCommunity(user)}
-            className="bg-black py-2 text-white rounded-lg mt-4"
-          >
-            Add
-          </button>
+          {loading == false ? (
+            <button
+              onClick={() => SendingImageToCommunity(user)}
+              className="bg-black py-2 text-white rounded-lg mt-4"
+            >
+              Add
+            </button>
+          ) : (
+            <button
+              className="py-2 mt-4 rounded-md border border-transparent bg-black text-sm font-medium text-white shadow-sm hover:black"
+              disabled
+            >
+              <span className="inline-flex items-center">
+                <span className="animate-blink mx-px h-1.5 w-1.5 rounded-full bg-white"></span>
+                <span className="animate-blink animation-delay-150 mx-px h-1.5 w-1.5 rounded-full bg-white"></span>
+                <span className="animate-blink animation-delay-300 mx-px h-1.5 w-1.5 rounded-full bg-white"></span>
+              </span>
+            </button>
+          )}
         </div>
+
+        <ul className="text-xs list-disc pl-8 space-y-2">
+          {firstOperation && (
+            <motion.li
+              animate={{ opacity: [0, 1], x: [-20, 0] }}
+              transition={{ duration: 0.2 }}
+              className="mt-8"
+            >
+              Converting DOM to Image
+            </motion.li>
+          )}
+          {secondOperation && (
+            <motion.li
+              animate={{ opacity: [0, 1], x: [-20, 0] }}
+              transition={{ duration: 0.2 }}
+            >
+              Sending the image to DB storage
+            </motion.li>
+          )}
+          {thirdOperation && (
+            <motion.li
+              animate={{ opacity: [0, 1], x: [-20, 0] }}
+              transition={{ duration: 0.2 }}
+            >
+              Getting the image URL and storing it in a document
+            </motion.li>
+          )}
+          {thirdOperation && (
+            <motion.li
+              animate={{ opacity: [0, 1], x: [-20, 0] }}
+              transition={{ duration: 0.2 }}
+            >
+              Added Successfully
+            </motion.li>
+          )}
+        </ul>
       </motion.div>
     </div>
   );
