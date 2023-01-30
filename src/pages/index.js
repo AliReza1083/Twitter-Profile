@@ -43,8 +43,8 @@ export default function Home({ user }) {
   };
 
   const loggingWithTwitter = async () => {
-    await signWithTwitter();
-    console.log("signed in");
+    const response = await signWithTwitter();
+    console.log(response);
   };
 
   return (

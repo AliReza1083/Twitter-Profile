@@ -8,7 +8,11 @@ import { motion } from "framer-motion";
 import { FaUsers } from "react-icons/fa";
 import { setDoc, collection, doc, getDoc } from "firebase/firestore";
 
+import { downloadLoadingAction } from "@/store/Background/Background.actions";
+
 const Community = ({ user }) => {
+  const dispatch = useDispatch();
+
   const style = {
     transform: "scale(1.8)",
     transformOrigin: "top left",
@@ -18,6 +22,7 @@ const Community = ({ user }) => {
   };
 
   const SendingImageToCommunity = async ({ name, id, username }) => {
+    dispatch(downloadLoadingAction(true));
     console.log("uploading");
     const container = document.querySelector("#container");
     container.classList.add("image");
@@ -47,7 +52,7 @@ const Community = ({ user }) => {
         ...user,
       });
       console.log("Added");
-
+      dispatch(downloadLoadingAction(false));
       return;
     } catch (error) {
       console.log(error);
