@@ -8,10 +8,6 @@
     color: white;
   }
 
-  body {
-    @apply pb-24;
-  }
-
   #text-header {
     background: linear-gradient(black, rgb(97, 97, 97));
     -webkit-background-clip: text;
