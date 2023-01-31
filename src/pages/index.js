@@ -85,7 +85,11 @@ const Home = () => {
           How this website can be used
         </h1>
 
-        <div className="grid md:grid-cols-2 gap-4 md:text-xl">
+        <div
+          className="grid md:grid-cols-2 gap-4 md:text-xl"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+        >
           <div>
             <h2 className="text-2xl font-bold mb-2">
               Search your Twitter profile
@@ -110,7 +114,11 @@ const Home = () => {
           />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4 md:text-xl">
+        <div
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+          className="grid md:grid-cols-2 gap-4 md:text-xl"
+        >
           <div>
             <h2 className="text-2xl font-bold mb-2">Change background theme</h2>
             <p>
@@ -122,7 +130,7 @@ const Home = () => {
             {GRADIENTS.map((gradient, index) => (
               <div
                 key={index}
-                className="h-28 rounded-lg"
+                className="h-28 rounded-lg active:scale-90 duration-100"
                 style={{
                   background: `linear-gradient(0deg, ${gradient.from}, ${gradient.to})`,
                 }}
@@ -132,7 +140,11 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4 md:text-xl">
+        <div
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+          className="grid md:grid-cols-2 gap-4 md:text-xl"
+        >
           <div>
             <h2 className="text-2xl font-bold mb-2">
               Change background rotation
