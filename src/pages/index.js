@@ -5,6 +5,7 @@ import CircularSlider from "@fseehawer/react-circular-slider";
 
 import HeaderIMG from "../assets/Header img.png";
 import SearchIMG from "../assets/search.png";
+import Upload from "@/assets/Upload";
 
 const GRADIENTS = [
   {
@@ -88,7 +89,7 @@ const Home = () => {
         <div
           className="grid md:grid-cols-2 gap-4 md:text-xl"
           data-aos="zoom-in"
-          data-aos-duration="1000"
+          data-aos-duration="500"
         >
           <div>
             <h2 className="text-2xl font-bold mb-2">
@@ -116,7 +117,7 @@ const Home = () => {
 
         <div
           data-aos="zoom-in"
-          data-aos-duration="1000"
+          data-aos-duration="500"
           className="grid md:grid-cols-2 gap-4 md:text-xl"
         >
           <div>
@@ -142,7 +143,7 @@ const Home = () => {
 
         <div
           data-aos="zoom-in"
-          data-aos-duration="1000"
+          data-aos-duration="500"
           className="grid md:grid-cols-2 gap-4 md:text-xl"
         >
           <div>
@@ -164,6 +165,23 @@ const Home = () => {
               verticalOffset="0em"
               onChange={(value) => setRotate(value)}
             />
+          </div>
+        </div>
+
+        <div
+          data-aos="zoom-in"
+          data-aos-duration="500"
+          className="grid md:grid-cols-2 gap-4 md:text-xl"
+        >
+          <div>
+            <h2 className="text-2xl font-bold mb-2">Upload your image</h2>
+            <p>
+              When you are done with your design, you have several options which
+              you can upload it.
+            </p>
+          </div>
+          <div className="flex justify-center items-center">
+            <Upload />
           </div>
         </div>
 

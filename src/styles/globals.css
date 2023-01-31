@@ -94,4 +94,32 @@
     background: grey;
     margin-bottom: 30px;
   }
+
+  #upload-method {
+    animation: upload-method 10s infinite linear;
+    transform-origin: center;
+  }
+
+  @keyframes upload-method {
+    from {
+      rotate: 0deg;
+    }
+    to {
+      rotate: 360deg;
+    }
+  }
+
+  #curve-text {
+    animation: curve-text 10s infinite linear;
+    transform-origin: center;
+  }
+
+  @keyframes curve-text {
+    from {
+      rotate: 0deg;
+    }
+    to {
+      rotate: -360deg;
+    }
+  }
 }
