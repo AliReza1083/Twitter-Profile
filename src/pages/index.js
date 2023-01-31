@@ -42,6 +42,7 @@ const Home = () => {
     to: "#C53A94",
   });
   const [rotate, setRotate] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   return (
     <div className="flex flex-col">
@@ -72,9 +73,12 @@ const Home = () => {
           </p>
           <Link
             href={"/creating"}
-            className="bg-black py-2 px-8 rounded-lg text-white inline-block mt-8"
+            className={`bg-black py-2 px-8 rounded-lg text-white inline-block mt-8 ${
+              loading && "animate-pulse"
+            }`}
+            onClick={() => setLoading(true)}
           >
-            Create Now
+            {loading ? "Taking you there..." : "Create Now"}
           </Link>
         </div>
         <div className="absolute right-0 bottom-24 md:bottom-0 -z-40 w-[650px] lg:w-[700px] xl:w-[900px]">
@@ -135,7 +139,7 @@ const Home = () => {
                 key={index}
                 className="h-28 rounded-lg active:scale-90 duration-100"
                 style={{
-                  background: `linear-gradient(0deg, ${gradient.from}, ${gradient.to})`,
+                  background: `linear-gradient(${rotate}deg, ${gradient.from}, ${gradient.to})`,
                 }}
                 onClick={() => setGradient(gradient)}
               ></div>
