@@ -39,9 +39,9 @@ const Home = () => {
             Create Now
           </Link>
         </div>
-        <div className="absolute right-0 bottom-0 -z-40 w-[650px] lg:w-[700px] xl:w-[900px]">
+        <div className="absolute right-0 bottom-24 md:bottom-0 -z-40 w-[650px] lg:w-[700px] xl:w-[900px]">
           <Image src={HeaderIMG} alt="" />
-          <div className="w-full h-full bg-gradient-to-tl md:bg-gradient-to-l from-transparent to-white absolute top-0 left-0"></div>
+          <div className="w-full h-full bg-gradient-to-t md:bg-gradient-to-l from-transparent to-white absolute top-0 left-0"></div>
         </div>
       </header>
     </div>
