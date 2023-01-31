@@ -1,10 +1,45 @@
 import Link from "next/link";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import CircularSlider from "@fseehawer/react-circular-slider";
 
 import HeaderIMG from "../assets/Header img.png";
+import SearchIMG from "../assets/search.png";
+
+const GRADIENTS = [
+  {
+    from: "#0965C0",
+    to: "#C53A94",
+  },
+  {
+    from: "#3D10BD",
+    to: "#62BDFF",
+  },
+  {
+    from: "#BDC3C7",
+    to: "#2C3E50",
+  },
+  {
+    from: "#FDC830",
+    to: "#F37335",
+  },
+  {
+    from: "#61C695",
+    to: "#133114",
+  },
+  {
+    from: "#FFEB3A",
+    to: "#4DEF8E",
+  },
+];
 
 const Home = () => {
+  const [gradient, setGradient] = useState({
+    from: "#0965C0",
+    to: "#C53A94",
+  });
+  const [rotate, setRotate] = useState(0);
+
   return (
     <div className="flex flex-col">
       <nav className="w-full bg-white border-b-2 fixed top-0 left-0 z-50">
@@ -44,6 +79,84 @@ const Home = () => {
           <div className="w-full h-full bg-gradient-to-t md:bg-gradient-to-l from-transparent to-white absolute top-0 left-0"></div>
         </div>
       </header>
+
+      <section className="w-full max-w-[1536px] px-4 md:px-24 lg:px-40 mx-auto py-24 space-y-24">
+        <h1 className="uppercase text-3xl font-bold text-center">
+          How this website can be used
+        </h1>
+
+        <div className="grid md:grid-cols-2 gap-4 md:text-xl">
+          <div>
+            <h2 className="text-2xl font-bold mb-2">
+              Search your Twitter profile
+            </h2>
+            <p>
+              You can write your Twitter handle and get information about your
+              Twitter profile, which includes:
+            </p>
+            <ul className="list-disc pl-8 mt-2 text-sm md:text-base">
+              <li>Name</li>
+              <li>Username</li>
+              <li>Description</li>
+              <li>Public Metrics</li>
+            </ul>
+          </div>
+          <Image
+            src={SearchIMG}
+            width={482}
+            height={323}
+            className="block mx-auto"
+            alt=""
+          />
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-4 md:text-xl">
+          <div>
+            <h2 className="text-2xl font-bold mb-2">Change background theme</h2>
+            <p>
+              There are background themes which you can use them to make your
+              image profile to look beautiful.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 px-[10%] md:px-0">
+            {GRADIENTS.map((gradient, index) => (
+              <div
+                key={index}
+                className="h-28 rounded-lg"
+                style={{
+                  background: `linear-gradient(0deg, ${gradient.from}, ${gradient.to})`,
+                }}
+                onClick={() => setGradient(gradient)}
+              ></div>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-4 md:text-xl">
+          <div>
+            <h2 className="text-2xl font-bold mb-2">
+              Change background rotation
+            </h2>
+            <p>You can change the rotation of the background gradient.</p>
+          </div>
+          <div
+            className="w-full h-56 flex justify-center items-center rounded-xl"
+            style={{
+              background: `linear-gradient(${rotate}deg, ${gradient.from}, ${gradient.to})`,
+            }}
+          >
+            <CircularSlider
+              width={80}
+              valueFontSize="20px"
+              labelFontSize="9px"
+              verticalOffset="0em"
+              onChange={(value) => setRotate(value)}
+            />
+          </div>
+        </div>
+
+        <h1 className="text-4xl font-bold text-center">and...</h1>
+      </section>
     </div>
   );
 };
