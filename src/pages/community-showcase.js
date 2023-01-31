@@ -26,7 +26,7 @@ const CommunityShowcase = () => {
   };
 
   return (
-    <div className="w-full max-w-[1536px] mx-auto">
+    <div className="w-full max-w-[1536px] mx-auto p-4">
       <h1
         id="text-header"
         className="font-black text-3xl md:text-5xl my-16 md:mt-24 text-center py-2"

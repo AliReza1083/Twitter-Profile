@@ -59,7 +59,7 @@ export default function Home({ user }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main
-        className={`${inter.className} flex flex-col items-center overflow-hidden`}
+        className={`${inter.className} flex flex-col items-center overflow-hidden p-4`}
       >
         <Navbar user={user} />
 
