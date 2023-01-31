@@ -6,6 +6,8 @@ import CircularSlider from "@fseehawer/react-circular-slider";
 import HeaderIMG from "../assets/Header img.png";
 import SearchIMG from "../assets/search.png";
 import Upload from "@/assets/Upload";
+import CommunityIMG from "../assets/community showcase.png";
+import { useSelector } from "react-redux";
 
 const GRADIENTS = [
   {
@@ -183,6 +185,27 @@ const Home = () => {
           <div className="flex justify-center items-center">
             <Upload />
           </div>
+        </div>
+
+        <div
+          data-aos="zoom-in"
+          data-aos-duration="500"
+          className="grid md:grid-cols-2 gap-4 md:text-xl"
+        >
+          <div>
+            <h2 className="text-2xl font-bold mb-2">Community Showcase</h2>
+            <p>
+              You can send your image to the &quot;Community Showcase&ldquo;, so
+              that everyone can see it.
+            </p>
+          </div>
+          <Image
+            src={CommunityIMG}
+            width={482}
+            height={323}
+            className="block mx-auto"
+            alt=""
+          />
         </div>
 
         <h1 className="text-4xl font-bold text-center">and...</h1>
