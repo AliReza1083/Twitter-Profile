@@ -19,7 +19,7 @@ const Home = () => {
         </div>
       </nav>
 
-      <header className="relative w-full max-w-[1536px] px-4 md:px-24 lg:px-40 h-screen 2xl:h-auto 2xl:py-56 flex items-center mx-auto">
+      <header className="relative w-full max-w-[1536px] px-4 md:px-24 lg:px-40 h-screen 2xl:h-auto py-28 2xl:py-56 flex sm:items-center mx-auto overflow-hidden">
         <div>
           <h1 className="uppercase text-3xl font-bold">
             create an image of your <br /> Twitter Profile
@@ -38,7 +38,7 @@ const Home = () => {
             Create Now
           </Link>
         </div>
-        <div className="absolute right-0 bottom-0 -z-40 w-[400px] sm:w-[600px] lg:w-[700px] xl:w-[900px]">
+        <div className="absolute right-0 bottom-0 -z-40 w-[550px] lg:w-[700px] xl:w-[900px]">
           <Image src={HeaderIMG} alt="" />
           <div className="w-full h-full bg-gradient-to-l from-transparent to-white absolute top-0 left-0"></div>
         </div>
