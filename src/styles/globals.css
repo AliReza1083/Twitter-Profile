@@ -9,7 +9,7 @@
   }
 
   body {
-    @apply p-4 pb-24;
+    @apply pb-24;
   }
 
   #text-header {
