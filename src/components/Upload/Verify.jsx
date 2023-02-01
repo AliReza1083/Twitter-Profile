@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { db, storage } from "../../utils/Firebase";
 import { useDispatch } from "react-redux";
@@ -12,6 +13,7 @@ import { verifyActions } from "@/store/Navbar/Navbar.actions";
 
 const Verify = ({ user }) => {
   const [inputField, setInputField] = useState("");
+  const [readPrivacy, setReadPrivacy] = useState(false);
   const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(false);
@@ -28,7 +30,7 @@ const Verify = ({ user }) => {
   };
 
   const SendingImageToCommunity = async ({ name, id, username }) => {
-    if (inputField !== `twitter/${username}`) return;
+    if (inputField !== `twitter/${username}` || readPrivacy == false) return;
 
     setLoading(true);
     const container = document.querySelector("#container");
@@ -94,6 +96,21 @@ const Verify = ({ user }) => {
           className="w-full border-2 border-[#555] px-2 py-1 rounded-md my-3"
           onChange={(e) => setInputField(e.target.value)}
         />
+
+        <label htmlFor="privacy" className="text-xs flex gap-2">
+          <input
+            type="checkbox"
+            id="privacy"
+            onChange={(e) => setReadPrivacy(e.target.checked)}
+          />
+          <p className="opacity-80">
+            I have read the{" "}
+            <Link href={"/privacy"} className="text-blue-700 underline">
+              privacy
+            </Link>
+          </p>
+        </label>
+
         <div className="grid grid-cols-2 gap-4 items-center">
           <button
             className="bg-red-800 py-2 text-white rounded-lg mt-4"
