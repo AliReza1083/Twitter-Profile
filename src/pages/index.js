@@ -83,7 +83,7 @@ const Home = () => {
         </div>
         <div className="absolute right-0 bottom-24 md:bottom-0 -z-40 w-[650px] lg:w-[700px] xl:w-[900px]">
           <Image src={HeaderIMG} alt="" />
-          <div className="w-full h-full bg-gradient-to-t md:bg-gradient-to-l from-transparent to-[#e3e3e3] absolute top-0 left-0"></div>
+          <div className="w-full h-full bg-gradient-to-t md:bg-gradient-to-l from-transparent to-[#fdfdfd] absolute top-0 left-0"></div>
         </div>
       </header>
 
