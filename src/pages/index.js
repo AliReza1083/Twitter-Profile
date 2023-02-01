@@ -87,7 +87,7 @@ const Home = () => {
         </div>
       </header>
 
-      <section className="w-full max-w-[1536px] px-4 md:px-24 lg:px-40 mx-auto py-24 space-y-24">
+      <section className="relative w-full max-w-[1536px] px-4 md:px-24 lg:px-40 mx-auto py-24 space-y-24">
         <h1 className="uppercase text-3xl font-bold text-center">
           How this website can be used
         </h1>
@@ -214,6 +214,21 @@ const Home = () => {
 
         <h1 className="text-4xl font-bold text-center">and...</h1>
       </section>
+
+      <div className="section__2 relative py-36 text-center text-white p-4">
+        <h1 className="text-3xl md:text-4xl font-bold">
+          What are you waiting for?
+        </h1>
+        <Link
+          href={"/creating"}
+          className={`bg-white py-2 px-8 rounded-lg text-black inline-block mt-8 ${
+            loading && "animate-pulse"
+          }`}
+          onClick={() => setLoading(true)}
+        >
+          {loading ? "Taking you there..." : "Create Now"}
+        </Link>
+      </div>
     </div>
   );
 };
