@@ -8,12 +8,6 @@
     color: white;
   }
 
-  #text-header {
-    background: linear-gradient(black, rgb(97, 97, 97));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
   .image {
     width: 700px !important;
     border-radius: 0em !important;

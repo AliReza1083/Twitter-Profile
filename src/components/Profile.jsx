@@ -44,7 +44,7 @@ const Profile = ({ user }) => {
     <>
       <div
         id="container"
-        className={`w-full max-w-[700px] p-8 rounded-xl shadow-2xl`}
+        className={`w-full max-w-[700px] p-8 rounded-xl`}
         style={{
           background: `linear-gradient(${rotateSelector}deg, ${backgroundSelector.from}, ${backgroundSelector.to})`,
         }}

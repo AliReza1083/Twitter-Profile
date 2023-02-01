@@ -70,13 +70,6 @@ export default function Home({ user }) {
           Community Showcase
         </Link>
 
-        <h1
-          id="text-header"
-          className="font-black text-3xl md:text-5xl mt-16 md:mt-24 mb-8 text-center py-2"
-        >
-          Get FREE image of your Twitter Profile
-        </h1>
-
         <div className="flex gap-4 py-12">
           <input
             type="text"

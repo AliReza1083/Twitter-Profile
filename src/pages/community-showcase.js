@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { db } from "@/utils/Firebase";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import Masonry from "react-masonry-css";
@@ -27,11 +28,23 @@ const CommunityShowcase = () => {
 
   return (
     <div className="w-full max-w-[1536px] mx-auto p-4">
+      <nav className="w-full bg-white border-b-2 fixed top-0 left-0 z-50">
+        <div className="w-full max-w-[1536px] h-16 flex justify-between items-center mx-auto px-4 md:px-24 lg:px-40">
+          <h1 className="font-bold text-xl">IMAGE-PROFILE</h1>
+          <Link
+            href={"/community-showcase"}
+            className="text-sm opacity-70 hover:opacity-100"
+          >
+            Community Showcase
+          </Link>
+        </div>
+      </nav>
+
       <h1
         id="text-header"
-        className="font-black text-3xl md:text-5xl my-16 md:mt-24 text-center py-2"
+        className="font-bold text-3xl md:text-4xl my-16 py-2"
       >
-        See your twitter Profile
+        Community Showcase
       </h1>
       {users.length != 0 ? (
         <Masonry
