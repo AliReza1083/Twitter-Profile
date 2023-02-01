@@ -8,7 +8,7 @@ import { downloadLoadingAction } from "@/store/Background/Background.actions";
 const Jpeg = ({ user }) => {
   const dispatch = useDispatch();
   const style = {
-    transform: "scale(1.8)",
+    transform: "scale(8)",
     transformOrigin: "top left",
     left: "0px",
     height: "auto",
@@ -21,8 +21,8 @@ const Jpeg = ({ user }) => {
     container.classList.add("image");
     const param = {
       quality: 1,
-      height: container.offsetHeight * 1.8,
-      width: container.offsetWidth * 1.8,
+      height: container.offsetHeight * 8,
+      width: container.offsetWidth * 8,
       style,
     };
     //image download
