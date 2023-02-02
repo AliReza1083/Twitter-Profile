@@ -3,8 +3,14 @@ import Frame from "./Frame";
 import CircularSlider from "@fseehawer/react-circular-slider";
 
 import { BiRotateLeft } from "react-icons/bi";
+import { useSelector, useDispatch } from "react-redux";
+import { HOMEPAGE } from "@/store/HomePage/home.types";
 
 export default function BackgroundRotation() {
+  const backgroundGradient = useSelector((state) => state.homePage.gradient);
+  const rotate = useSelector((state) => state.homePage.rotate);
+  const dispatch = useDispatch();
+
   return (
     <Frame>
       <div className="">
@@ -20,7 +26,7 @@ export default function BackgroundRotation() {
         <div
           className="w-full h-56 flex justify-center items-center rounded-xl my-8"
           style={{
-            background: `linear-gradient(${0}deg, #0965C0, #C53A94)`,
+            background: `linear-gradient(${rotate}deg, ${backgroundGradient.from}, ${backgroundGradient.to})`,
           }}
         >
           <CircularSlider
@@ -29,7 +35,7 @@ export default function BackgroundRotation() {
             labelFontSize="9px"
             verticalOffset="0em"
             onChange={(value: ChangeEvent<HTMLInputElement>) =>
-              console.log(value)
+              dispatch({ type: HOMEPAGE.rotate, payload: value })
             }
           />
         </div>
