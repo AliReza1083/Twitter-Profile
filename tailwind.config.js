@@ -11,6 +11,9 @@ module.exports = {
         primary: "#0D0E15",
         secondary: "#0965C0",
       },
+      boxShadow: {
+        informationShadow: "0 12px 54px rgba(255, 255, 255, .02)",
+      },
     },
   },
   plugins: [],
