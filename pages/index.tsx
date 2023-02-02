@@ -8,6 +8,7 @@ import Hero from "@/components/Home/Hero";
 import Container from "@/components/ContainerWidth";
 import Search from "@/components/Home/Information/Search";
 import BackgroundColors from "@/components/Home/Information/BackgroundColor";
+import BackgroundRotation from "@/components/Home/Information/BackgroundRotation";
 
 const breakpointColumnsObj = {
   default: 2,
@@ -40,9 +41,7 @@ export default function Home() {
           >
             <Search />
             <BackgroundColors />
-            <Search />
-            <Search />
-            <Search />
+            <BackgroundRotation />
           </Masonry>
         </Container>
       </main>
