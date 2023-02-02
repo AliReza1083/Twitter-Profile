@@ -7,7 +7,7 @@ export default function Button() {
   return (
     <Link
       href={"/creating"}
-      className={`bg-black py-2 px-8 rounded-lg text-white inline-block mt-8 ${
+      className={`bg-white py-2 px-8 rounded-lg text-black inline-block mt-8 ${
         loading && "animate-pulse"
       }`}
       onClick={() => setLoading(true)}
