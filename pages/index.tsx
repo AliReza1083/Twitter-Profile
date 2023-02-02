@@ -7,6 +7,7 @@ import CommunityIMG from "../assets/community showcase.png";
 import Hero from "@/components/Home/Hero";
 import Container from "@/components/ContainerWidth";
 import Search from "@/components/Home/Information/Search";
+import BackgroundColors from "@/components/Home/Information/BackgroundColor";
 
 const breakpointColumnsObj = {
   default: 2,
@@ -38,7 +39,7 @@ export default function Home() {
             columnClassName="my-masonry-grid_column"
           >
             <Search />
-            <Search />
+            <BackgroundColors />
             <Search />
             <Search />
             <Search />
