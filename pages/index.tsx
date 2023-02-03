@@ -9,6 +9,7 @@ import Search from "@/components/Home/Information/Search";
 import BackgroundColors from "@/components/Home/Information/BackgroundColor";
 import BackgroundRotation from "@/components/Home/Information/BackgroundRotation";
 import Upload from "@/components/Home/Information/Upload";
+import CommunityShowcase from "@/components/Home/Information/CommunityShowcase";
 
 const breakpointColumnsObj = {
   default: 2,
@@ -42,6 +43,7 @@ export default function Home() {
             <BackgroundColors />
             <BackgroundRotation />
             <Upload />
+            <CommunityShowcase />
           </Masonry>
         </Container>
       </main>
