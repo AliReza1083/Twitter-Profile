@@ -1,11 +1,15 @@
 import Frame from "./Frame";
 
 import { FOUR_GRADIENT, GRADIENTS } from "../../../content/Gradient";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/store/store";
+import { HOMEPAGE } from "@/store/HomePage/HomeTypes";
+import { Actions } from "@/store/hook";
 
 export default function BackgroundColors() {
   const state = useSelector((state: RootState) => state.homepage.rotate);
+  const dispatch = useDispatch();
+
   return (
     <Frame>
       <div className="flex gap-2 items-center">
@@ -34,6 +38,9 @@ export default function BackgroundColors() {
             style={{
               background: `linear-gradient(${state}deg, ${gradient.from}, ${gradient.to})`,
             }}
+            onClick={() =>
+              dispatch<Actions>({ type: HOMEPAGE.GRADIENT, payload: gradient })
+            }
           ></div>
         ))}
       </div>

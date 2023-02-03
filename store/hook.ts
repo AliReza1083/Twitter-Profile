@@ -5,4 +5,9 @@ interface IRotate {
   payload: number;
 }
 
-export type Actions = IRotate;
+interface IGradient {
+  type: HOMEPAGE.GRADIENT;
+  payload: { from: string; to: string };
+}
+
+export type Actions = IRotate | IGradient;

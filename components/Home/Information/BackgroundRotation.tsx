@@ -4,13 +4,15 @@ import CircularSlider from "@fseehawer/react-circular-slider";
 import Frame from "./Frame";
 
 import { BiRotateLeft } from "react-icons/bi";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/store/store";
-import { useDispatch } from "react-redux";
 import { HOMEPAGE } from "@/store/HomePage/HomeTypes";
 
 export default function BackgroundRotation() {
-  const state = useSelector((state: RootState) => state.homepage.rotate);
+  const rotateState = useSelector((state: RootState) => state.homepage.rotate);
+  const backgroundState = useSelector(
+    (state: RootState) => state.homepage.gradient
+  );
   const dispatch = useDispatch();
 
   return (
@@ -28,7 +30,7 @@ export default function BackgroundRotation() {
         <div
           className="w-full h-56 flex justify-center items-center rounded-xl my-8"
           style={{
-            background: `linear-gradient(${state}deg, white, red)`,
+            background: `linear-gradient(${rotateState}deg, ${backgroundState.from}, ${backgroundState.to})`,
           }}
         >
           <CircularSlider

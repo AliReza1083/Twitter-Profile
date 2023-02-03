@@ -1,3 +1,4 @@
 export enum HOMEPAGE {
-  ROTATE = "ROTATE",
+  ROTATE = "home/rotate",
+  GRADIENT = "home/gradient",
 }
