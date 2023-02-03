@@ -9,7 +9,7 @@
   }
 
   body {
-    @apply bg-[#fdfdfd] pb-24 md:pb-0;
+    @apply bg-[#fdfdfd] h-[110vh] md:h-auto;
   }
 
   .image {
