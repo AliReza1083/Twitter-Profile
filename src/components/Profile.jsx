@@ -49,7 +49,7 @@ const Profile = ({ user }) => {
           background: `linear-gradient(${rotateSelector}deg, ${backgroundSelector.from}, ${backgroundSelector.to})`,
         }}
       >
-        <div className="w-full sm:w-3/4 md:w-1/2 mx-auto bg-black text-white bg-opacity-75 dark:bg-white dark:text-black dark:bg-opacity-75 p-8 rounded-xl flex flex-col items-center shadow-xl">
+        <div className="w-full sm:w-3/4 md:w-1/2  overflow-hidden mx-auto bg-black text-white bg-opacity-75 dark:bg-white dark:text-black dark:bg-opacity-75 p-8 rounded-xl flex flex-col items-center shadow-xl">
           <img
             src={highQualityImage}
             width={100}
