@@ -1,15 +1,17 @@
-import { HOMEPAGE } from "./home.types";
+import { HOMEPAGE } from "./HomeTypes";
+
+import { Actions } from "../hook";
 
 const INITIAL_VALUE = {
-  gradient: { from: "#0965C0", to: "#C53A94" },
   rotate: 0,
 };
 
-export const homeReducer = (state = INITIAL_VALUE, { type, payload }) => {
+export const homeReducer = (
+  state: { rotate: number } = INITIAL_VALUE,
+  { type, payload }: Actions
+) => {
   switch (type) {
-    case HOMEPAGE.gradient:
-      return { ...state, gradient: payload };
-    case HOMEPAGE.rotate:
+    case HOMEPAGE.ROTATE:
       return { ...state, rotate: payload };
     default:
       return state;

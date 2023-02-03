@@ -1,11 +1,11 @@
 import Frame from "./Frame";
-import { useSelector } from "react-redux";
 
 import { FOUR_GRADIENT, GRADIENTS } from "../../../content/Gradient";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
 
 export default function BackgroundColors() {
-  const rotate = useSelector((state) => state.homePage.rotate);
-
+  const state = useSelector((state: RootState) => state.homepage.rotate);
   return (
     <Frame>
       <div className="flex gap-2 items-center">
@@ -32,7 +32,7 @@ export default function BackgroundColors() {
             key={index}
             className="w-full h-24 rounded-lg active:scale-90 duration-100"
             style={{
-              background: `linear-gradient(${rotate}deg, ${gradient.from}, ${gradient.to})`,
+              background: `linear-gradient(${state}deg, ${gradient.from}, ${gradient.to})`,
             }}
           ></div>
         ))}
