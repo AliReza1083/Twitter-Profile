@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Masonry from "react-masonry-css";
 
-import Upload from "@/assets/Upload";
 import CommunityIMG from "../assets/community showcase.png";
 
 import Hero from "@/components/Home/Hero";
@@ -9,6 +8,7 @@ import Container from "@/components/ContainerWidth";
 import Search from "@/components/Home/Information/Search";
 import BackgroundColors from "@/components/Home/Information/BackgroundColor";
 import BackgroundRotation from "@/components/Home/Information/BackgroundRotation";
+import Upload from "@/components/Home/Information/Upload";
 
 const breakpointColumnsObj = {
   default: 2,
@@ -37,11 +37,11 @@ export default function Home() {
           <Masonry
             breakpointCols={breakpointColumnsObj}
             className="my-masonry-grid"
-            columnClassName="my-masonry-grid_column"
-          >
+            columnClassName="my-masonry-grid_column">
             <Search />
             <BackgroundColors />
             <BackgroundRotation />
+            <Upload />
           </Masonry>
         </Container>
       </main>
