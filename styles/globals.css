@@ -7,5 +7,5 @@ html {
 }
 
 body {
-  @apply relative min-h-full bg-black text-[#d7d7d7];
+  @apply relative min-h-full pb-24 bg-black text-[#d7d7d7];
 }

@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-export default function Button() {
+interface IButtonProp {
+  value?: string;
+}
+
+export default function Button({ value }: IButtonProp) {
   const [loading, setLoading] = useState<boolean>(false);
 
   return (
@@ -12,7 +16,7 @@ export default function Button() {
       }`}
       onClick={() => setLoading(true)}
     >
-      {loading ? "Taking you there..." : "Create Now"}
+      {loading ? "Taking you there..." : `${value ? value : "Create Now"}`}
     </Link>
   );
 }

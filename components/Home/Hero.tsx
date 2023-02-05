@@ -20,13 +20,6 @@ export default function Hero() {
             Twitter profile
           </span>
         </h1>
-        {/* <p className="px-4 py-1 bg-[#ECECEC] rounded-full text-xs sm:text-sm mt-2">
-          Right now there are <span className="text-blue-800">10</span> image in
-          the{" "}
-          <Link href={"/community-showcase"} className="text-blue-800">
-            Community Showcase
-          </Link>
-        </p> */}
         <Button />
       </div>
       <div className="absolute right-0 bottom-24 md:bottom-0 -z-40 w-[650px] lg:w-[700px] xl:w-[900px]">

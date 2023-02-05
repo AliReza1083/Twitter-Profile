@@ -10,6 +10,7 @@ import BackgroundColors from "@/components/Home/Information/BackgroundColor";
 import BackgroundRotation from "@/components/Home/Information/BackgroundRotation";
 import Upload from "@/components/Home/Information/Upload";
 import CommunityShowcase from "@/components/Home/Information/CommunityShowcase";
+import Button from "@/components/Home/Button";
 
 const breakpointColumnsObj = {
   default: 2,
@@ -38,14 +39,27 @@ export default function Home() {
           <Masonry
             breakpointCols={breakpointColumnsObj}
             className="my-masonry-grid"
-            columnClassName="my-masonry-grid_column">
+            columnClassName="my-masonry-grid_column"
+          >
             <Search />
             <BackgroundColors />
             <BackgroundRotation />
             <Upload />
             <CommunityShowcase />
           </Masonry>
+          <h1 className="text-6xl md:text-8xl font-black text-center">
+            and...
+          </h1>
         </Container>
+        <div
+          id="banner"
+          className="relative isolate flex flex-col items-center py-24"
+        >
+          <h1 className="text-5xl font-bold text-white">
+            What are you waiting for?
+          </h1>
+          <Button />
+        </div>
       </main>
     </>
   );
